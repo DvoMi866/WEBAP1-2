@@ -8,6 +8,12 @@
 </head>
 <body>
     <button id="button">Show name</button>
-    <p></p>
+    <h1 id="text"></h1>
+    <script>
+        
+    $("#button").click(function(){
+        $("#text").load("name.txt");
+    })
+    </script>
 </body>
 </html>
