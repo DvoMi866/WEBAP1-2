@@ -9,9 +9,45 @@
         $(document).ready(function()
         {
             // TODO: bind a click event to every button (b1 … b8)
-
+            $("#b1").click(function(){
+                 $("p").css("background-color", "yellow")
+            })
+ 
+             $("#b2").click(function(){
+                  $("#left").css("background-color", "yellow")
+            })
+ 
+             $("#b3").click(function(){
+                 $("#left p").css("background-color", "yellow")
+            })
+             $("#b4").click(function(){
+                 $(".special").css("background-color", "yellow")
+            })
+ 
+             $("#b5").click(function(){
+                 $("p.special").css("background-color", "yellow")
+            })
+ 
+             $("#b6").click(function(){
+                 $("div#right p.special").css("background-color", "yellow")
+            })
+ 
+             $("#b7").click(function(){
+                 $("#page p").css("background-color", "yellow")
+            })
+ 
+             $("#b8").click(function(){
+                 $("#page &gt; p").css("background-color", "yellow")
+            })
+ 
+            $("#reset").click(function(){
+                $("*").css("background-color", "")
+            })
+ 
+ 
+ 
             // TODO: highlight the selected elements with css("background-color", "yellow")
-
+ 
             // TODO: #reset removes all backgrounds
         });
     </script>
@@ -29,7 +65,7 @@
         <button id="b8">$("#page &gt; p")</button>
         <button id="reset">Reset</button>
     </div>
-
+ 
     <div id="page">
         <h1>Welcome</h1>
         <div id="left">
