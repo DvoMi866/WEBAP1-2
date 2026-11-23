@@ -8,39 +8,39 @@
     <script>
         // TODO: rewrite the following plain JavaScript code with jQuery
 
-        document.addEventListener("DOMContentLoaded", function()
+        $(document).ready(function()
         {
-            document.getElementById("setTitle").addEventListener("click", function()
+            $("#setTitle").click(function()
             {
-                let text = document.getElementById("newTitle").value;
-                document.getElementById("title").textContent = text;
-                document.getElementById("newTitle").value = "";
+                let text = $("#newTitle").val();
+                $("#title").text(text);
+                $("#newTitle").val("");
             });
 
-            document.getElementById("toggleTheme").addEventListener("click", function()
+            $("#toggleTheme").click(function()
             {
-                document.body.classList.toggle("dark");
+                $("body").toggleClass("dark");
             });
 
-            let box = document.getElementById("colorBox");
-            box.addEventListener("mouseenter", function()
+            let box = $("#colorBox");
+            box.on("mouseenter", function()
             {
-                box.style.backgroundColor = "orange";
+                box.css("backgroundColor", "orange");
             });
-            box.addEventListener("mouseleave", function()
+            box.on("mouseleave", function()
             {
-                box.style.backgroundColor = "";
-            });
-
-            document.getElementById("plus").addEventListener("click", function()
-            {
-                let counter = document.getElementById("counter");
-                counter.innerHTML = Number(counter.innerHTML) + 1;
+                box.css("backgroundColor", "");
             });
 
-            document.getElementById("size").addEventListener("change", function()
+            $("#plus").click(function()
             {
-                document.getElementById("sample").style.fontSize = this.value;
+                let counter = $("#counter");
+                counter.text(Number(counter.text()) + 1);
+            });
+
+            $("#size").change(function()
+            {
+                $("#sample").css("fontSize", this.value);
             });
 
             document.getElementById("show").addEventListener("change", function()

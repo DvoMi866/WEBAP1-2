@@ -9,12 +9,35 @@
         $(document).ready(function()
         {
             // TODO: #add (and Enter in #task): append a new <li> to #list
-
+                $('#add').click(function() {
+                    var taskText = $('#task').val().trim();
+                    if (taskText) {
+                        $('#list').append('<li>' + taskText + '</li>');
+                        $('#task').val(''); // Clear the input field
+                        updateCount();
+                    }
+                });
+                $('#task').keyup(function(e) {
+                    if (e.key === "Enter") { // Enter key pressed
+                        $('#add').click(); // Trigger the add button click
+                        e.preventDefault(); // Prevent form submission
+                    }
+                });
             // TODO: click on an <li>: toggle the class done (event delegation!)
-
+            $('#list').on('click', 'li', function() {
+                $(this).toggleClass('done');
+                updateCount();
+            });
             // TODO: #clearDone: remove all completed tasks
-
+            $('#clearDone').click(function() {
+                $('#list .done').remove();
+                updateCount();
+            });
             // TODO: update #count
+            function updateCount() {
+                var openTasks = $('#list li:not(.done)').length;
+                $('#count').text(openTasks);
+            }
         });
     </script>
 </head>

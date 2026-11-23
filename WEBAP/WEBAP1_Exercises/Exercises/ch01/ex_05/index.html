@@ -9,10 +9,37 @@
         $(document).ready(function()
         {
             // TODO: #summary: display all values in the list #output
-
+            $("#name").on("input", function()
+            {
+                if($(this).val().trim() === "")
+                    $("#summary").prop("disabled", true);
+                else
+                    $("#summary").prop("disabled", false);
+            });
+            $("#summary").click(function()
+            {
+                $("#output").empty();
+                $("#output").append("<li>Name: " + $("#name").val() + "</li>");
+                $("#output").append("<li>E-mail: " + $("#email").val() + "</li>");
+                $("#output").append("<li>Class: " + $("#class").val() + "</li>");
+                $("#output").append("<li>Language: " + $('input[name="language"]:checked').val() + "</li>");
+                $("#output").append("<li>Newsletter: " + ($("#newsletter").is(":checked") ? "Yes" : "No") + "</li>");
+                $("#output").append("<li>Remarks: " + $("#remarks").val() + "</li>");
+            });
             // TODO: enable/disable #summary depending on the name field (event input)
 
             // TODO: #reset: clear all fields and the list
+            $("#reset").click(function()
+            {
+                $("#name").val("");
+                $("#email").val("");
+                $("#class").val("");
+                $('input[value="EN"]').prop("checked", true);
+                $("#newsletter").prop("checked", false);
+                $("#remarks").val("");
+                $("#output").empty();
+                $("#summary").prop("disabled", true);
+            });
         });
     </script>
 </head>

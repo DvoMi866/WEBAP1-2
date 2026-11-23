@@ -9,7 +9,39 @@
         $(document).ready(function()
         {
             // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
-
+            $("#calc").click(function(){
+                if($("#a").val() === "" || $("#b").val() === "") {
+                    $("#result").text("Error: Please enter both numbers");
+                    return;
+                }
+                else if(isNaN($("#a").val()) || isNaN($("#b").val())) {
+                    $("#result").text("Error: Please enter valid numbers");
+                    return;
+                }
+                var a = parseFloat($("#a").val());
+                var b = parseFloat($("#b").val());
+                var op = $("#op").val();
+                var result;
+                switch(op) {
+                    case "+":
+                        result = a + b;
+                        break;
+                    case "-":
+                        result = a - b;
+                        break;
+                    case "*":
+                        result = a * b;
+                        break;
+                    case "/":
+                        if(b === 0) {
+                            $("#result").text("Error: Division by zero");
+                            return;
+                        }
+                        result = a / b;
+                        break;
+                }
+                $("#result").text(result);
+            })
             // TODO: error messages for invalid input and division by zero
         });
     </script>
