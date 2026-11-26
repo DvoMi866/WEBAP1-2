@@ -43,15 +43,15 @@
                 $("#sample").css("fontSize", this.value);
             });
 
-            document.getElementById("show").addEventListener("change", function()
+            $("#show").change(function()
             {
                 if (this.checked)
                 {
-                    document.getElementById("secret").style.display = "";
+                    $("#secret").show();
                 }
                 else
                 {
-                    document.getElementById("secret").style.display = "none";
+                    $("#secret").hide();
                 }
             });
         });
